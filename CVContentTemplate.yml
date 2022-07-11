@@ -1,0 +1,63 @@
+---
+PersonalInfo:
+  Name: Elliot Alderson
+  AddressSuburb: The Moon
+  AddressCity: Outer Space, 90064
+  Email: Joe@mars.com
+  Mobile: +x 12345678
+
+Experience:
+  - Years: 2019 - Present
+    Employer: NotARealCompany
+    Position: Software Dev
+    Location: The Moon
+    responsibilities:
+      - Stack: React
+        Features:
+          - Implemented x, y, z
+        General:
+          - Used Something Framework
+          - Made Something Something Pipeline
+  - Years: July 2020 - Present
+    Employer: "Nasa"
+    Position: "Astronaut"
+    Location: "Mars"
+Education:
+  - Years: University of Github
+    Location: The Moon
+    Studying: BCompSci
+    Grades: High Distinction Average
+    Graduation: Expected graduation to be in November 2100
+    Ext1: Extra Content
+TechSkills:
+  ProgrammingLanguages:
+    - Java
+    - C
+    - Python
+    - Typescript
+  FrameWorks:
+    - JUnit
+    - React
+  DBMS:
+    - PostGresSQL
+    - MySQL
+Languages:
+  - English
+  - French
+  - German
+  - Italian
+References:
+  - Name: Joe
+    Position: General Manager
+    Email: 1234567@1234567.com
+    Work: +x 12345678
+    Mobile: +x 12345678
+linkedinacc: www.google.com
+githubacc: www.google.com
+# Settings
+mainfont: Liberation Sans
+fontsize: 10pt
+lang: en-GB
+geometry: a4paper, left=15mm, right=15mm, top=20mm, bottom=20mm
+---
+

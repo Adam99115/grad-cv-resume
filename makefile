@@ -1,9 +1,8 @@
 TEX = pandoc
-src = template.tex details.yml
-FLAGS = --pdf-engine=xelatex
+src = CVTemplate.tex CVContentTemplate.yml
 
-output.pdf : $(src)
-	$(TEX) $(filter-out $<,$^ ) -o $@ --template=$< $(FLAGS)
+CVTemplate.pdf : $(src)
+	$(TEX) $(filter-out $<,$^ ) -o $@ --template=$<
 
 .PHONY: clean
 clean :

@@ -1,0 +1,198 @@
+\documentclass[$fontsize$, a4paper]{article}
+% Layout
+% Margins
+\usepackage{geometry}
+\geometry{$geometry$}
+\setlength\parindent{0pt}
+
+\usepackage{ragged2e}
+
+\usepackage{multicol}
+
+\usepackage{marginnote}
+\usepackage{changepage}
+\usepackage{setspace}
+
+\usepackage{sectsty}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\usepackage{graphicx}
+\usepackage{graphbox}
+
+% PDF SETUPS
+\usepackage{hyperref}
+\hypersetup{
+    pdfauthor={$name$},
+    pdfsubject={$name$'s CV},
+    pdftitle={$name$'s CV},
+    colorlinks, breaklinks, xetex, bookmarks,
+    filecolor=black,
+    urlcolor=[rgb]{0.117,0.682,0.858},
+    linkcolor=[rgb]{0.117,0.682,0.858},
+    linkcolor=[rgb]{0.117,0.682,0.858},
+    citecolor=[rgb]{0.117,0.682,0.858}
+  }
+  
+\tcbset{
+frame code={},
+left=5pt,
+right=0pt,
+top=10pt,
+bottom=7.5pt,
+colback=RoyalBlue,
+colframe=RoyalBlue,
+width=\textwidth,
+enlarge left by=0mm,
+boxsep=0pt,
+arc=0pt,outer arc=0pt,
+}
+
+\setlength{\columnsep}{1cm}
+\setlength{\multicolsep}{0pt}
+
+\usepackage[export]{adjustbox}
+\usepackage{titlesec} 
+\usepackage[inline]{enumitem}
+\titleformat{name=\section}
+  {\color{RoyalBlue}\normalfont\Large\bfseries}{\thesection}{0em}{\hspace{0pt}}{}
+
+\titlespacing*{\section}
+{0pt}{0ex}{-1ex}
+\titlespacing*{\subsection}
+{0pt}{0ex}{0ex}
+\titlespacing*{\subsubsection}
+{0pt}{0ex}{0ex}
+
+\begin{document}
+    \begin{adjustwidth}{0pt}{0pt}
+    $PersonalInfo.AddressSuburb$
+    \hfill
+    $PersonalInfo.Email$\\
+    $PersonalInfo.AddressCity$
+    \hfill
+    $PersonalInfo.Mobile$
+    \end{adjustwidth}
+    \begin{tcolorbox}
+        \bf\noindent\huge\color{white} {$PersonalInfo.Name$}
+        \hfill
+        \href{$githubacc$}{\textcolor{RoyalBlue}{[\includegraphics[width=.75cm, align=c]{github.png}]\raggedright}}
+        \href{$linkedinacc$}{\textcolor{RoyalBlue}{[\includegraphics[width=.75cm, align=c]{linkedin.png}]\raggedright}}
+        \hspace{5pt}
+    \end{tcolorbox}
+    
+    \begin{adjustwidth}{5pt}{5pt}
+        \begin{multicols*}{2}
+        \section*{Experience}\raggedbottom
+        \textcolor{RoyalBlue}{\noindent\rule{\linewidth}{1pt}}
+        \begin{itemize}
+        $for(Experience)$
+            {\item \subsection*{$Experience.Employer$}}
+            \subsubsection*{$Experience.Position$}
+            {$Experience.Years$}
+            $if(Experience.responsibilities)$
+                $for(Experience.responsibilities)$
+                    \begin{itemize} 
+                        $if(Experience.responsibilities.Stack)$
+                            \item $Experience.responsibilities.Stack$
+                        $endif$
+                        $if(Experience.responsibilities.Features)$
+                            \begin{itemize} 
+                                $for(Experience.responsibilities.Features)$
+                                    \item $Experience.responsibilities.Features$
+                                $endfor$
+                            \end{itemize}
+                        $endif$
+                        $if(Experience.responsibilities.General)$
+                            $for(Experience.responsibilities.General)$
+                               \item $Experience.responsibilities.General$
+                            $endfor$
+                        $endif$
+                    \end{itemize}
+                $endfor$
+            $endif$
+        $endfor$
+        
+        \vfill
+        \end{itemize}  
+        \vfill
+        \columnbreak
+        \section*{Education}
+        \textcolor{RoyalBlue}{\noindent\rule{\linewidth}{1pt}}
+            $for(Education)$
+                \subsection*{$Education.Location$}
+                \subsubsection*{$Education.Years$}
+                \begin{itemize}
+                    \item  $Education.Studying$
+
+                    $if(Education.Graduation)$
+                    \item $Education.Graduation$
+                    $endif$
+
+                    $if(Education.Grades)$
+                    \item $Education.Grades$
+                    $endif$
+                    
+                    $if(Education.Ext1)$
+                    \item  $Education.Ext1$
+                    $endif$
+                    $if(Education.Ext2)$
+                    \item  $Education.Ext2$
+                    $endif$
+                \end{itemize}
+            
+            $endfor$
+        \section*{Technical Skills}
+        \textcolor{RoyalBlue}{\noindent\rule{\linewidth}{1pt}}
+                \begin{multicols*}{2}
+                    \subsection*{Programming Langauges}
+                        \begin{itemize} 
+                            $for(TechSkills.ProgrammingLanguages)$
+                                \item $TechSkills.ProgrammingLanguages$
+                            $endfor$
+                        \end{itemize}
+                    \subsection*{DBMS}
+                        \begin{itemize}
+                            $for(TechSkills.DBMS)$
+                                \item $TechSkills.DBMS$
+                            $endfor$
+                        \end{itemize}
+                    \columnbreak
+                    \subsection*{FrameWorks and Tools}
+                        \begin{itemize}
+                            $for(TechSkills.FrameWorks)$
+                                \item $TechSkills.FrameWorks$
+                            $endfor$
+                            \item \LaTeX
+                        \end{itemize}
+                \end{multicols*}
+        \section*{Languages}
+        \textcolor{RoyalBlue}{\noindent\rule{\linewidth}{1pt}}
+            \begin{itemize} [noitemsep]
+                $if(Languages)$
+                    $for(Languages)$
+                        \item $Languages$
+                    $endfor$
+                $endif$
+            \end{itemize}
+        \section*{References}
+        \textcolor{RoyalBlue}{\noindent\rule{\linewidth}{1pt}}
+        $for(References)$
+            \subsection*{$References.Name$
+            }
+            \subsubsection*{
+            $References.Position$}
+            \begin{itemize} [noitemsep]
+                \item  Email : $References.Email$
+                \item  Work : $References.Work$
+                $if(References.Mobile)$
+                \item  Mobile : $References.Mobile$
+                $endif$
+            \end{itemize}
+                    
+            $endfor$
+        \end{multicols*}
+    \end{adjustwidth}
+
+  \end{document}
+
